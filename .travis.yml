@@ -1,7 +1,12 @@
 language: ruby
-rvm:
- - 2.3.3
- deploy:
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
   provider: heroku
-  api_key: "837952df-ce61-4973-b65b-572ddc852153"
-  app: UtbmWorkV2
+  api_key:
+    secure: "837952df-ce61-4973-b65b-572ddc852153"
+  app: utbmworkv3
