@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+ - 2.3.3
+ deploy:
+  provider: heroku
+  api_key: "837952df-ce61-4973-b65b-572ddc852153"
+  app: UtbmWorkV2
