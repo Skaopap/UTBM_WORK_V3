@@ -1,3 +1,11 @@
 language: ruby
 rvm:
  - 2.3.5
+ before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+deploy:
+  provider: heroku
+  api_key:
+    secure: 837952df-ce61-4973-b65b-572ddc852153
+  app: utbmworkv3
