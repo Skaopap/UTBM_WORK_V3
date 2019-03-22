@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_09_102139) do
+ActiveRecord::Schema.define(version: 2019_03_22_094728) do
+
+  create_table "orderlines", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "products_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_orderlines_on_order_id"
+    t.index ["products_id"], name: "index_orderlines_on_products_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.string "adress"
+    t.string "zipcode"
+    t.string "town"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
